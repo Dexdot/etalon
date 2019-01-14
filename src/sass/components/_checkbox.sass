@@ -1,0 +1,120 @@
+// Parent
+.checkbox
+  transition: $trs
+  padding-left: 20px
+  position: relative
+
+// Rect
+.checkbox__rect
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+
+  width: 20px
+  height: 20px
+
+  cursor: pointer
+  transition: $trs
+  background: #fff
+
+.checkbox__rect::before
+  content: ''
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+  width: 8px
+  height: 8px
+
+  background: $b
+  transition: $trs
+  opacity: 0
+
+// Text
+.checkbox__text
+  padding-left: 16px
+  cursor: pointer
+
+// Input
+.checkbox__input
+  position: absolute
+  top: 0
+  left: 0
+
+  opacity: 0
+  cursor: pointer
+
+  width: 20px
+  height: 20px
+
+// Hover
+.checkbox__input:hover:not(:disabled) ~ .checkbox__rect
+  background: #E2E2E2
+  
+// Checked
+.checkbox__input:checked ~ .checkbox__rect::before
+  opacity: 1
+  
+// Disabled
+.checkbox__input:disabled,
+.checkbox__input:disabled ~ .checkbox__text,
+.checkbox__input:disabled ~ .checkbox__rect
+  pointer-events: none
+.checkbox__input:disabled ~ .checkbox__text
+  opacity: 0.2
+
+
+/* OUTLINED */
+.checkbox--outlined
+  // Rect
+  .checkbox__rect
+    background: 0
+    border: 1px solid rgba($b, 0.3)
+
+  // Hover
+  .checkbox__input:hover:not(:disabled) ~ .checkbox__rect
+    background: 0
+    border: 1px solid rgba($b, 0.6)
+
+  // Disabled
+  .checkbox__input:disabled ~ .checkbox__rect
+    border: 1px solid rgba($b, 0.1)
+
+
+/* RADIO */
+.checkbox--radio
+  .checkbox__rect,
+  .checkbox__rect::before
+    border-radius: 50%
+
+
+/* SWITCH */
+.checkbox--switch
+  padding-left: 32px
+
+  // Rect
+  .checkbox__rect
+    width: 32px
+    border-radius: 40px
+
+  .checkbox__rect::before
+    border-radius: 50%
+    opacity: 1
+
+    left: 0
+    transform: translate(6px, -50%)
+
+  // Hover
+  .checkbox__input:checked ~ .checkbox__rect::before
+    transform: translate(18px, -50%)
+
+  // Disabled
+  .checkbox__input:disabled ~ .checkbox__rect::before
+    opacity: 0.2
+
+.checkbox--switch.checkbox--outlined
+  .checkbox__input:checked ~ .checkbox__rect
+    border: 1px solid #000
+

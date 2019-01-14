@@ -1,0 +1,94 @@
+.modal
+  position: relative
+  opacity: 0
+  pointer-events: none
+  &.is-open
+    opacity: 1
+    pointer-events: auto
+
+.modal__overlay
+  z-index: 4
+  position: fixed
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0, 0, 0, 0.6)
+  display: flex
+  align-items: center
+  justify-content: center
+
+.modal__container
+  background: #fff
+  overflow-y: auto
+  overflow-x: hidden
+
+  position: relative
+  max-width: 510px
+  max-height: 100vh
+
+.modal__content
+  display: flex
+  flex-direction: column
+  padding: 56px 0
+
+.modal__footer
+  display: flex
+  align-items: stretch
+
+.modal__btn
+  flex: 1
+  height: 56px
+
+  background: #EBEDEF
+  color: #A1A1A1
+  font-size: 16px
+  letter-spacing: 0.01em
+
+@keyframes mmfadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes mmfadeOut
+  from
+    opacity: 1
+  to
+    opacity: 0
+
+@keyframes mmslideIn
+  from
+    transform: scale(0.9)
+  to
+    transform: scale(1)
+
+@keyframes mmslideOut
+  from
+    transform: scale(1)
+  to
+    transform: scale(0.9)
+
+
+.modal[aria-hidden="false"] .modal__overlay
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+
+.modal[aria-hidden="false"] .modal__container
+  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1)
+
+.modal[aria-hidden="true"] .modal__overlay
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+
+.modal[aria-hidden="true"] .modal__container
+  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1)
+
+.modal .modal__container,
+.modal .modal__overlay
+  will-change: transform
+
+.modal__container
+  width: 386px
+  @media (max-width: 500px)
+    width: 100%

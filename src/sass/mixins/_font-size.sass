@@ -1,0 +1,22 @@
+// Отступы
+=fs($color: dark_blue)
+
+  // lvl 5 - dark_blue
+  @if $color == dark_blue
+    +ff('font-size', (480px: 16px, 1280px: 24px, 1440px: 32px, 1920px: 40px, 2550px: 64px))
+
+  // lvl 4 - blue
+  @if $color == blue
+    +ff('font-size', (480px: 48px, 960px: 64px, 1440px: 80px, 2550px: 120px))
+
+  // lvl 3 - violet
+  @if $color == violet
+    +ff('font-size', (480px: 64px, 1280px: 80px, 1920px: 120px, 2550px: 144px))
+
+  // lvl 2 - pink
+  @if $color == pink
+    +ff('font-size', (960px: 80px, 1440px: 120px, 1920px: 144px, 2550px: 200px))
+
+  // lvl 1 - orange
+  @if $color == orange
+    +ff('font-size', (480px: 120px, 960px: 144px, 1440px: 200px, 1920px: 240px, 2550px: 280px))
