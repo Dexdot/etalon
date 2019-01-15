@@ -1,0 +1,114 @@
+.range
+  width: 100%
+  position: relative
+
+// Input
+.range__field
+  width: 100%
+  height: 2px
+
+  background: rgba($b, 0.1)
+
+  outline: 0
+  cursor: pointer
+  appearance: none
+
+  position: absolute
+  top: 50%
+  left: 0
+
+
+// Thumb
+.range__field
+  // MOZ
+  &::-moz-range-thumb
+    width: 14px
+    height: 14px
+
+    border-radius: 50%
+    background: $b
+    transition: $trs
+    box-shadow: 0px 0px 0px 20px rgba($b, 0)
+
+    appearance: none
+    cursor: pointer
+
+    // Hover on thumb
+    &:hover
+      background: #2f2f31
+
+  // WEBKIT
+  &::-webkit-slider-thumb
+    width: 14px
+    height: 14px
+
+    border-radius: 50%
+    background: $b
+    transition: $trs
+    box-shadow: 0px 0px 0px 20px rgba($b, 0)
+
+    appearance: none
+    cursor: pointer
+
+    // Hover on thumb
+    &:hover
+      background: #2f2f31
+
+  // Disabled MOZ
+  &:disabled
+    &,
+    &::-moz-range-thumb,
+    & + .range__track
+      pointer-events: none
+      cursor: auto
+      background: rgba($b, 0.1)
+
+  // Disabled WEBKIT
+  &:disabled
+    &,
+    &::-webkit-slider-thumb,
+    & + .range__track
+      pointer-events: none
+      cursor: auto
+      background: rgba($b, 0.1)
+
+  // Focused MOZ
+  &:focus:not(:disabled)::-moz-range-thumb
+    transform: scale(0.85)
+    box-shadow: 0px 0px 0px 12px rgba($b, 0.1)
+
+  // Focused WEBKIT
+  &:focus:not(:disabled)::-webkit-slider-thumb
+    transform: scale(0.85)
+    box-shadow: 0px 0px 0px 12px rgba($b, 0.1)
+
+  // On drag MOZ
+  &:active:not(:disabled)::-moz-range-thumb
+    transform: scale(0.85)
+    box-shadow: 0px 0px 0px 20px rgba($b, 0.1)
+
+  // On drag WEBKIT
+  &:active:not(:disabled)::-webkit-slider-thumb
+    transform: scale(0.85)
+    box-shadow: 0px 0px 0px 20px rgba($b, 0.1)
+
+
+// Track container
+.range__track-container
+  position: relative
+  width: 100%
+  height: 2px
+
+// Track
+.range__track
+  pointer-events: none
+  position: absolute
+  top: 0
+  left: 0
+
+  background: $b
+  transform-origin: 0% 100%
+
+  width: 100%
+  height: 100%
+
