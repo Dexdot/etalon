@@ -3,6 +3,8 @@ html.no-scroll body
 
 body
   background: #C4C4C4
+  +scrollbar
+
   color: $b
   +obj(m)
   font-size: 16px
@@ -27,12 +29,20 @@ section
     margin-bottom: 24px
     margin-right: 40px
 
-  .range
+  .range:not(:last-child)
     margin-bottom: 48px
 
   .range span
     display: block
     margin-bottom: 24px
+
+  .btn:not(:last-child):not(.btn--inline)
+    margin-right: 40px
+    margin-bottom: 40px
+  
+  .btn--inline + .margin
+    width: 222px
+    display: block
 
 h1
   line-height: 1.05
@@ -46,8 +56,12 @@ h2
   margin-bottom: 2em
 
 .heading
-  max-width: 50%
+  max-width: 55%
+  min-width: 55%
   padding-right: 17%
+  
+  position: sticky
+  top: 7.8%
 
   p
     max-width: 70%

@@ -1,0 +1,195 @@
+// Contained
+.btn
+  display: block
+  &:not(.btn--inline)
+    width: 240px
+    height: 56px
+
+  position: relative
+
+  cursor: pointer
+  transition: $trs
+
+  color: $w
+  +obj(m)
+  font-size: 12px
+  letter-spacing: 0.08em
+  text-transform: uppercase
+
+  &:not(.btn--outlined):not(:disabled):hover .btn__cover
+    background: $b-lt
+
+  &__cover
+    z-index: -1
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: $b
+    transition: $trs
+    pointer-events: none
+
+
+// Disabled
+.btn:disabled:not(.btn--outlined):not(.btn--inline)
+  color: #B3B3B3
+
+  // Background color
+  .btn__cover
+    background: $w
+
+  // Children colors
+  .btn__plus::before,
+  .btn__plus::after
+    background: #B3B3B3
+  .btn__divider
+    background: #DDDDDD
+
+
+// Disabled input btn
+.btn:not(.btn--outlined)
+  input
+    &:disabled,
+    &:disabled ~ *
+      pointer-events: none
+
+    // Background color
+    &:disabled ~ .btn__cover
+      background: $w
+
+    // Text color
+    &:disabled ~ .btn__text
+      color: #B3B3B3
+
+    // Children colors
+    &:disabled ~ .btn__plus::before,
+    &:disabled ~ .btn__plus::after,
+    &:disabled ~ .btn__divider
+      background: #B3B3B3
+  
+  &:hover input:disabled ~ .btn__cover
+    background: $w
+
+
+// Outlined
+.btn--outlined
+  // Text color
+  color: $b
+
+  // No BG color
+  .btn__cover
+    background: transparent
+  
+  // Border
+  .btn__cover
+    border: 1px solid $b
+
+  // Children colors
+  .btn__divider,
+  .btn__plus::before,
+  .btn__plus::after
+    background: $b
+
+  // Disabled button
+  &:disabled
+    opacity: 0.3
+    pointer-events: none
+
+  // Disabled input btn
+  input
+    &:disabled
+      pointer-events: none
+    &:disabled ~ *
+      pointer-events: none
+      opacity: 0.3
+
+  // Hover btn
+  &:hover:not(:disabled) .btn__cover
+    transform: scale(0.985)
+
+  // Hover disabled input btn
+  &:hover input:disabled ~ .btn__cover
+    transform: scale(1)
+
+
+// Upload button / input
+.btn--upload
+  display: flex
+  align-items: center
+  justify-content: center
+
+  input
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+    cursor: pointer
+    opacity: 0
+
+  &:not(:disabled):hover .btn__plus
+    transform: rotate(180deg)
+
+  &:hover input:disabled ~ .btn__plus
+    transform: rotate(0)
+
+
+  .btn__divider,
+  .btn__text,
+  .btn__plus
+    pointer-events: none
+
+  .btn__divider
+    margin-left: 24px
+    margin-right: 40px
+
+
+// Inline button
+.btn--inline
+  color: $b
+.btn--inline:disabled
+  opacity: 0.3
+
+
+// Plus
+.btn__plus
+  width: 12px
+  height: 12px
+
+  transform-origin: 50% 50%
+  transition: $trs
+
+  position: relative
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+    border-radius: 12px
+    background: #fff
+
+    display: block
+
+  &::before
+    width: 12px
+    height: 2px
+
+  &::after
+    width: 2px
+    height: 12px
+
+// Divider
+.btn__divider
+  display: block
+  width: 1px
+  height: 24px
+
+  background: #404141
+
+
