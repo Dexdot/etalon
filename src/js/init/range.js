@@ -1,4 +1,9 @@
-import Range from '../components/range';
+import Range from '@/components/range';
 
-const items = document.querySelectorAll('.range');
-const ranges = Array.from(items).map(item => new Range(item));
+window.addEventListener('DOMContentLoaded', () => {
+  const ranges = [];
+
+  $.each('.range', el => {
+    ranges.push(new Range(el));
+  });
+});

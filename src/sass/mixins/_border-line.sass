@@ -1,0 +1,26 @@
+=border-line($top: bottom, $offset: $unit, $height: 1px, $bg: rgba(#C4C4C4, 0.3))
+  @if $top == top
+    position: relative
+
+    &::before
+      content: ''
+      position: absolute
+      #{$top}: 0
+      left: -$offset
+
+      height: $height
+      width: calc(#{100%} + #{$offset} * 2)
+      background: $bg
+
+  @if $top == bottom
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      #{$top}: 0
+      left: -$offset
+
+      height: $height
+      width: calc(#{100%} + #{$offset} * 2)
+      background: $bg

@@ -1,7 +1,6 @@
 let lastScrollTop = 0;
 let scrollDirection = 0;
 const getScrollDirection = () => scrollDirection;
-const $window = $(window);
 
 // Направление скролла
 // -1: вверх
@@ -9,7 +8,8 @@ const $window = $(window);
 // Направление скролла
 
 const checkScrollDirection = () => {
-  const windowScrollTop = $window.scrollTop();
+  const windowScrollTop = window.pageYOffset;
+
   if (windowScrollTop > lastScrollTop) {
     scrollDirection = 1;
   } else {
@@ -18,6 +18,6 @@ const checkScrollDirection = () => {
   lastScrollTop = windowScrollTop;
 };
 
-$window.on('scroll', checkScrollDirection);
+window.addEventListener('scroll', checkScrollDirection);
 
 export default getScrollDirection;

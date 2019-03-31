@@ -9,83 +9,152 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
 
-    <title>BUFFET</title>
-    <meta name="description" content="BUFFET" />
-    <meta name="keywords" content="buffet boys" />
+    <title>Etalon</title>
+
+    <!-- Meta -->
+    <meta name="description" content="Etalon" />
+    <meta name="keywords" content="prisma, finland" />
     <meta name="robots" content="index, follow" />
 
+    <!-- OG -->
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="BUFFET" />
+    <meta property="og:site_name" content="Etalon" />
     <meta property="og:url" content="" />
     <meta
       property="og:image"
       content="img/favicon/android-chrome-512x512.png"
     />
-    <meta property="og:description" content="BUFFET" />
+    <meta property="og:description" content="Etalon" />
 
+    <!-- Styles -->
     <link rel="stylesheet" href="css/main.min.css" />
 
-    <!-- <link rel="preload" href="./fonts/fontname/Font-Regular.woff2" as="font" />
-    <link rel="preload" href="./fonts/fontname/Font-Bold.woff2" as="font" /> -->
+    <!-- Preload -->
+    <link
+      rel="preload"
+      href="./fonts/futura/subset-FuturaPT-Book.woff2"
+      as="font"
+    />
 
-    <!-- favicons -->
+    <!-- Favicons -->
   </head>
-
   <body></body>
 </html>
 
 
 <!-- Sprite -->
 <!-- SVG Sprite -->
-<div style="display: none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="i-close" viewBox="0 0 22 22"><path d="M1 1l10 10m10 10L11 11m0 0L21 1 1 21"/></symbol></svg></div>
+<div style="display: none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="i-chevron" viewBox="0 0 14 14"><path d="M3.5 5.25L7 8.75l3.5-3.5"/></symbol><symbol id="i-close" viewBox="0 0 22 22"><path d="M1 1l10 10m10 10L11 11m0 0L21 1 1 21"/></symbol><symbol id="i-plus" viewBox="0 0 14 14"><path d="M7 2.917v8.166M2.918 7h8.167" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg></div>
 <!-- ./SVG Sprite -->
 
 
 
 <main>
-  <section>
+  <!-- Typography -->
+  <section class="section">
   <div class="container">
-    <div class="flex align-start">
+    <div class="u-flex u-ais">
       <div class="heading">
-        <h1>Selection controls</h1>
+        <h2 class="t-h1">Typography</h2>
+        <p>
+          Use typography to present your design and content as clearly and
+          efficiently as possible.
+        </p>
+      </div>
+      <div>
+        <div class="group">
+          <h1>Header 1</h1>
+          <h2>Header 2</h2>
+          <h3>Header 3</h3>
+          <h4>Header 4</h4>
+          <h5>Header 5</h5>
+
+          <a href="">Ссылка</a>
+
+          <button class="t-ttu u-mb-3">Uppercase</button>
+
+          <p class="u-mb-3">
+            Блузка приталенного силуэта с баской, выполнена из плотного
+            трикотажа с набивным принтом. Модель с круглым вырезом горловины,
+            длинными рукавами и застежкой-молнией на спинке
+          </p>
+
+          <ul class="ul u-mb-3">
+            <li>
+              с условиями Пользовательского соглашения о конфиденциальности без
+              исключения;
+            </li>
+            <li>
+              на обработку ООО «ЭнЭл Груп» своих персональных данных, а также
+              персональных данных несовершеннолетнего ребенка, которому
+              Пользователь является: отцом/ матерью /опекуном/ попечителем;
+            </li>
+            <li>на информационную рассылку.</li>
+          </ul>
+
+          <ol class="ol u-mb-3">
+            <li>Larne</li>
+            <li>MyHome</li>
+            <li>Алексеевская дубрава</li>
+            <li>Сахарок</li>
+            <li>Porta 11</li>
+            <li>Neurohive</li>
+            <li>Che Group</li>
+            <li>NL Group</li>
+            <li>Clinic Estetic</li>
+            <li>Prisma</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Selection -->
+  <section class="section">
+  <div class="container">
+    <div class="u-flex u-ais">
+      <div class="heading">
+        <h2 class="t-h1">Selection controls</h2>
         <p>Selection controls allow the user to select options.</p>
       </div>
       <div>
         <div class="group">
-          <h2>Checkbox</h2>
+          <h2 class="u-mb-4">Checkbox</h2>
 
-          <div class="flex">
-            <div class="flex flex-col">
+          <div class="u-flex">
+            <div class="u-flex u-flex-col">
               <label class="checkbox">
-                <input class="checkbox__input" type="checkbox" />
+                <input class="checkbox__field" type="checkbox" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active check</span>
               </label>
               <label class="checkbox">
-                <input class="checkbox__input" type="checkbox" checked />
+                <input class="checkbox__field" type="checkbox" checked />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox">
-                <input class="checkbox__input" type="checkbox" disabled />
+                <input class="checkbox__field" type="checkbox" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <label class="checkbox checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" />
+                <input class="checkbox__field" type="checkbox" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active check</span>
               </label>
               <label class="checkbox checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" checked />
+                <input class="checkbox__field" type="checkbox" checked />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" disabled />
+                <input class="checkbox__field" type="checkbox" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
@@ -93,18 +162,18 @@
           </div>
         </div>
         <div class="group">
-          <h2>Radio</h2>
+          <h2 class="u-mb-4">Radio</h2>
 
-          <div class="flex">
-            <div class="flex flex-col">
+          <div class="u-flex">
+            <div class="u-flex u-flex-col">
               <label class="checkbox checkbox--radio">
-                <input class="checkbox__input" type="radio" name="radio1" />
+                <input class="checkbox__field" type="radio" name="radio1" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active radio</span>
               </label>
               <label class="checkbox checkbox--radio">
                 <input
-                  class="checkbox__input"
+                  class="checkbox__field"
                   type="radio"
                   name="radio1"
                   checked
@@ -113,20 +182,20 @@
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox checkbox--radio">
-                <input class="checkbox__input" type="radio" disabled />
+                <input class="checkbox__field" type="radio" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <label class="checkbox checkbox--radio checkbox--outlined">
-                <input class="checkbox__input" type="radio" name="radio2" />
+                <input class="checkbox__field" type="radio" name="radio2" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active radio</span>
               </label>
               <label class="checkbox checkbox--radio checkbox--outlined">
                 <input
-                  class="checkbox__input"
+                  class="checkbox__field"
                   type="radio"
                   name="radio2"
                   checked
@@ -135,7 +204,7 @@
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox checkbox--radio checkbox--outlined">
-                <input class="checkbox__input" type="radio" disabled />
+                <input class="checkbox__field" type="radio" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
@@ -143,39 +212,39 @@
           </div>
         </div>
         <div class="group">
-          <h2>Switch</h2>
+          <h2 class="u-mb-4">Switch</h2>
 
-          <div class="flex">
-            <div class="flex flex-col">
+          <div class="u-flex">
+            <div class="u-flex u-flex-col">
               <label class="checkbox checkbox--switch">
-                <input class="checkbox__input" type="checkbox" />
+                <input class="checkbox__field" type="checkbox" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active switch</span>
               </label>
               <label class="checkbox checkbox--switch">
-                <input class="checkbox__input" type="checkbox" checked />
+                <input class="checkbox__field" type="checkbox" checked />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox checkbox--switch">
-                <input class="checkbox__input" type="checkbox" disabled />
+                <input class="checkbox__field" type="checkbox" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <label class="checkbox checkbox--switch checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" />
+                <input class="checkbox__field" type="checkbox" />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Active switch</span>
               </label>
               <label class="checkbox checkbox--switch checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" checked />
+                <input class="checkbox__field" type="checkbox" checked />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Checked</span>
               </label>
               <label class="checkbox checkbox--switch checkbox--outlined">
-                <input class="checkbox__input" type="checkbox" disabled />
+                <input class="checkbox__field" type="checkbox" disabled />
                 <div class="checkbox__rect"></div>
                 <span class="checkbox__text">Disabled</span>
               </label>
@@ -183,34 +252,28 @@
           </div>
         </div>
         <div class="group">
-          <h2>Slider</h2>
+          <h2 class="u-mb-4">Slider</h2>
 
-          <div class="flex">
-            <div class="flex flex-col w100">
-              <div class="range">
-                <label>
-                  <span>Enabled</span>
-                  <div class="range__track-container">
-                    <input
-                      min="50"
-                      max="125"
-                      value="50"
-                      class="range__field"
-                      type="range"
-                    />
-                    <div class="range__track"></div>
-                  </div>
-                </label>
-              </div>
-              <div class="range">
-                <label>
-                  <span>Disabled</span>
-                  <div class="range__track-container">
-                    <input class="range__field" type="range" disabled />
-                    <div class="range__track"></div>
-                  </div>
-                </label>
-              </div>
+          <div class="u-flex u-w100">
+            <div class="u-flex u-flex-col u-w100">
+              <label class="range">
+                <span class="range__track-container">
+                  <input
+                    min="50"
+                    max="125"
+                    value="50"
+                    class="range__field"
+                    type="range"
+                  />
+                  <span class="range__track"></span>
+                </span>
+              </label>
+              <label class="range">
+                <span class="range__track-container"
+                  ><input class="range__field" type="range" disabled />
+                  <span class="range__track"></span>
+                </span>
+              </label>
             </div>
           </div>
         </div>
@@ -218,11 +281,43 @@
     </div>
   </div>
 </section>
- <section>
+
+
+  <!-- Textfields -->
+  <section class="section">
   <div class="container">
-    <div class="flex align-start">
+    <div class="u-flex align-start">
       <div class="heading">
-        <h1>Buttons</h1>
+        <h2 class="t-h1">Textfields</h2>
+        <p>Text fields let users enter and edit text.</p>
+      </div>
+      <div>
+        <div class="group">
+          <h2 class="u-mb-4">Input text</h2>
+
+          <label class="input u-mb-4">
+            <input type="text" class="input__field" placeholder="Placeholder" />
+            <span class="input__line"></span>
+          </label>
+
+          <select class="js-select">
+            <option value="value-1">Value 1</option>
+            <option value="value-2">Value 2</option>
+            <option value="value-3">Value 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Buttons -->
+  <section class="section">
+  <div class="container">
+    <div class="u-flex align-start">
+      <div class="heading">
+        <h2 class="t-h1">Buttons</h2>
         <p>
           Buttons allow users to take actions, and make choices, with a single
           tap.
@@ -230,10 +325,10 @@
       </div>
       <div>
         <div class="group">
-          <h2>Contained</h2>
+          <h2 class="u-mb-4">Contained</h2>
 
-          <div class="flex">
-            <div class="flex flex-col">
+          <div class="u-flex">
+            <div class="u-flex u-flex-col">
               <button class="btn">
                 <div class="btn__cover"></div>
                 Button
@@ -246,7 +341,7 @@
                 <span class="btn__text">Attach File</span>
               </div>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <button class="btn" disabled>
                 <div class="btn__cover"></div>
                 Button
@@ -262,10 +357,10 @@
           </div>
         </div>
         <div class="group">
-          <h2>Outlined</h2>
+          <h2 class="u-mb-4">Outlined</h2>
 
-          <div class="flex">
-            <div class="flex flex-col">
+          <div class="u-flex">
+            <div class="u-flex u-flex-col">
               <button class="btn btn--outlined">
                 <div class="btn__cover"></div>
                 Button
@@ -278,7 +373,7 @@
                 <span class="btn__text">Attach File</span>
               </div>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <button class="btn btn--outlined" disabled>
                 <div class="btn__cover"></div>
                 Button
@@ -294,27 +389,28 @@
           </div>
         </div>
         <div class="group">
-          <h2>Inline</h2>
+          <h2 class="u-mb-4">Inline</h2>
 
-          <div class="flex">
-            <div class="flex">
+          <div class="u-flex">
+            <div class="u-flex">
               <button class="btn btn--inline">Button</button>
               <div class="margin"></div>
             </div>
-            <div class="flex flex-col">
+            <div class="u-flex u-flex-col">
               <button class="btn btn--inline" disabled>Button</button>
             </div>
           </div>
         </div>
         <div class="group">
-          <h2>Drag & Drop</h2>
+          <h2 class="u-mb-4">Drag & Drop</h2>
 
-          <div class="flex">
+          <div class="u-flex">
             <figure class="dnd">
               <input type="file" />
               <div class="dnd__container">
                 <div class="dnd__icon">
-                  <i class="dnd__plus"></i> <svg class="dnd__svg" viewBox="0 0 36 36">
+                  <i class="dnd__plus"></i>
+                  <svg class="dnd__svg" viewBox="0 0 36 36">
   <path
     class="dnd__circle"
     stroke-dasharray="80 100"
@@ -337,28 +433,9 @@
   </div>
 </section>
 
-  <section>
-  <div class="container">
-    <div class="flex align-start">
-      <div class="heading">
-        <h1>Text fields</h1>
-        <p>Text fields let users enter and edit text.</p>
-      </div>
-      <div>
-        <div class="group"><h2>Input text</h2></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <!-- footer -->
-<script>
-  var css = ["\n %c Made with ♥️ by its.agency %c %c %c https://its.agency/ %c %c \n", "color: #fff; background: #333333; padding:5px 0;", "background: #333333; padding:5px 0;", "background: #333333; padding:5px 0;", "color: #fff; background: #333333; padding:5px 0;", "background: #fff; padding:5px 0;", "color: #333333; background: #fff; padding:5px 0;"];
-
-  window.console.log.apply(console, css)
-</script>
 <script defer src="js/index.js"></script>
 
 </body>

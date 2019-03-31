@@ -1,24 +1,33 @@
 export default class Accordion {
   constructor(el = {}) {
     this.el = el;
+    this.accordions = Array.from(this.el.children);
+    this.buttons = this.accordions.map(acc => acc.firstElementChild);
 
-    const $buttons = this.el.find('> .accordion > .accordion__btn');
-    $buttons.on('click', { el: this.el }, this.dropdown);
+    const self = this;
+    this.buttons.forEach(btn => {
+      btn.addEventListener('click', function onAccordionButtonClick() {
+        self.button = this;
+        self.dropdown();
+      });
+    });
   }
 
-  dropdown(e) {
-    const $el = e.data.el;
-    const $this = $(this);
-    const $next = $this.next();
+  dropdown() {
+    // Current content
+    const content = this.button.nextElementSibling;
+    document.documentElement.style.setProperty(
+      '--acc-max-height',
+      `${content.scrollHeight}px`
+    );
+    content.parentElement.classList.toggle('active');
 
-    $next.slideToggle();
-    $this.parent().toggleClass('is-open');
+    // Other contents
+    const currentIndex = this.accordions.indexOf(content.parentElement);
+    const others = this.accordions.filter((el, i) => i !== currentIndex);
 
-    $el
-      .find('.accordion__content')
-      .not($next)
-      .slideUp()
-      .parent()
-      .removeClass('is-open');
+    others.forEach(el => {
+      el.classList.remove('active');
+    });
   }
 }

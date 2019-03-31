@@ -1,0 +1,17 @@
+// OL
+.ol > li
+  counter-increment: step-counter
+
+.ol > li::before
+  content: counter(step-counter)'.'
+  margin-right: 16px
+
+
+// UL
+.ul
+  list-style: initial
+
+.ul > li
+  padding-left: 8px
+.ul > li:not(:last-child)
+  margin-bottom: 24px

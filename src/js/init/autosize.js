@@ -1,14 +1,27 @@
-// Textarea autosize
-$(() => {
-  $('.js-autosize')
-    .on('change keyup keydown paste cut', 'textarea', function onAutosize() {
-      const $this = $(this);
-      const padding =
-        +$this.css('padding-top').split('px')[0] +
-        +$this.css('padding-bottom').split('px')[0];
+import init from 'autosize';
 
-      $this.height(0).height(this.scrollHeight - padding);
-    })
-    .find('textarea')
-    .change();
+// Init fn
+const autosize = field => {
+  const setParentHeight = (child, height) => {
+    child.parentElement.style.height = `${height}px`;
+  };
+
+  init(field);
+
+  field.addEventListener('autosize:resized', function onAutosizeResized() {
+    const height = +this.style.height.split('px')[0];
+    setParentHeight(this, height);
+  });
+
+  // Set initital height
+  setParentHeight(field, +field.style.height.split('px')[0]);
+};
+
+// Init
+window.addEventListener('DOMContentLoaded', () => {
+  $.each('.js-autosize', el => {
+    autosize(el);
+  });
 });
+
+export default autosize;

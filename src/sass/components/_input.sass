@@ -1,0 +1,47 @@
+.input
+  display: block
+  position: relative
+
+// Filled
+.input--filled
+  .input__line::before
+    transform: scaleX(1)
+
+
+// Field
+.input__field
+  width: 100%
+  padding-bottom: 16px
+
+.input__field:focus + .input__line::before
+  transform: scaleX(1)
+
+.input__field::placeholder
+  color: inherit
+
+
+// Line
+.input__line
+  position: absolute
+  bottom: 0
+  left: 0
+
+  width: 100%
+  height: 1px
+
+  background: rgba($black, 0.3)
+
+.input__line::before
+  content: ''
+  position: absolute
+  bottom: 1px
+  left: 0
+
+  width: 100%
+  height: 2px
+
+  background: $black
+  transform-origin: 0% 50%
+  transform: scaleX(0)
+  transition: $trs
+

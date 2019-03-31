@@ -1,0 +1,17 @@
+body
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  +scrollbar
+  
+  +ft(r)
+  +base-text
+  line-height: $base-lh
+  color: $base-text-color
+  letter-spacing: 0.02em
+
+  background: #C4C4C4
+  transition: background 0.8s ease
+
+html.no-scroll body
+  overflow: hidden

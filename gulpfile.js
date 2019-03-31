@@ -20,13 +20,14 @@ const plumber = require('gulp-plumber');
 
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config');
 
 const svgstore = require('gulp-svgstore');
 const svgo = require('gulp-svgo');
 
-const pth = require('path');
+const context = require('./context');
 
-const path = {
+const src = {
   js: 'src/js',
   html: 'src/html',
   sass: 'src/sass',
@@ -57,12 +58,13 @@ gulp.task('browser-sync', () => {
 // HTML
 gulp.task('html', () =>
   gulp
-    .src([`${path.html}/pages/*.html`])
+    .src([`${src.html}/pages/*.html`])
     .pipe(plumber())
     .pipe(
       fileinclude({
         prefix: '@',
-        basepath: '@file'
+        basepath: '@file',
+        context
       })
     )
     .pipe(gulp.dest('./src/'))
@@ -71,55 +73,29 @@ gulp.task('html', () =>
 // JS
 gulp.task('js', () =>
   gulp
-    .src(`./${path.js}/pages/*.js`)
+    .src(`./${src.js}/pages/*.js`)
     .pipe(plumber())
     .pipe(named())
-    .pipe(
-      webpackStream({
-        module: {
-          rules: [
-            {
-              loader: 'babel-loader',
-              test: /\.(js)$/
-            }
-          ]
-        }
-      })
-    )
-    .pipe(gulp.dest(`./${path.js}`))
+    .pipe(webpackStream(webpackConfig.dev, webpack))
+    .pipe(gulp.dest(`./${src.js}`))
     .pipe(browserSync.reload({ stream: true }))
 );
 
 // JS Minify
 gulp.task('js-min', () =>
   gulp
-    .src(`./${path.js}/pages/*.js`)
+    .src(`./${src.js}/pages/*.js`)
     .pipe(plumber())
     .pipe(named())
-    .pipe(
-      webpackStream(
-        {
-          module: {
-            rules: [
-              {
-                loader: 'babel-loader',
-                test: /\.(js)$/
-              }
-            ]
-          },
-          mode: 'production'
-        },
-        webpack
-      )
-    )
-    .pipe(gulp.dest(`./${path.js}`))
+    .pipe(webpackStream(webpackConfig.prod, webpack))
+    .pipe(gulp.dest(`./${src.js}`))
     .pipe(browserSync.reload({ stream: true }))
 );
 
 // SASS
 gulp.task('sass', () =>
   gulp
-    .src(`${path.sass}/**/*.sass`)
+    .src(`${src.sass}/**/*.sass`)
     .pipe(
       sass({ outputStyle: 'expand', precision: 5 }).on(
         'error',
@@ -141,25 +117,29 @@ gulp.task('sass', () =>
       })
     )
     .pipe(cleanCSS())
-    .pipe(gulp.dest(path.css))
+    .pipe(gulp.dest(src.css))
     .pipe(browserSync.reload({ stream: true }))
 );
 
 // SVG Sprite
 gulp.task('sprite', () => {
   return gulp
-    .src(`${path.sprite}/i-*.svg`)
+    .src(`${src.sprite}/i-*.svg`)
     .pipe(plumber())
     .pipe(
       svgo({
         plugins: [
-          { removeAttrs: { attrs: ['fill', 'fill-rule', 'stroke', 'style'] } }
+          {
+            removeAttrs: {
+              attrs: ['width', 'height', 'fill', 'fill-rule', 'stroke', 'style']
+            }
+          }
         ]
       })
     )
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
-    .pipe(gulp.dest(`${path.sprite}/`));
+    .pipe(gulp.dest(`${src.sprite}/`));
 });
 
 gulp.task('removedist', () => del.sync('dist'));
@@ -167,18 +147,18 @@ gulp.task('removedist', () => del.sync('dist'));
 // Watcher
 gulp.task('watch', ['html', 'js', 'sass', 'sprite', 'browser-sync'], () => {
   // Styles
-  gulp.watch(`${path.sass}/**/*.sass`, ['sass']);
+  gulp.watch(`${src.sass}/**/*.sass`, ['sass']);
 
   // SVG
-  gulp.watch(`${path.sprite}/i-*.svg`, ['sprite']);
+  gulp.watch(`${src.sprite}/i-*.svg`, ['sprite']);
 
   // JS
   jsSubfolders.forEach(subfolder => {
-    gulp.watch([`${path.js}/${subfolder}/**/*.js`], ['js']);
+    gulp.watch([`${src.js}/${subfolder}/**/*.js`], ['js']);
   });
 
   // HTML
-  gulp.watch(`${path.html}/**/*.html`, ['html']);
+  gulp.watch(`${src.html}/**/*.html`, ['html']);
   gulp.watch('src/*.html', browserSync.reload);
 });
 
@@ -189,12 +169,13 @@ gulp.task('build', ['removedist', 'html', 'sass', 'sprite', 'js-min'], () => {
   const buildFonts = gulp.src(['src/fonts/**/*']).pipe(gulp.dest('dist/fonts'));
 
   const buildCss = gulp
-    .src([`${path.css}/main.min.css`])
+    .src([`${src.css}/main.min.css`])
     .pipe(gulp.dest('dist/css'));
 
-  const buildJs = gulp.src([`${path.js}/*.js`]).pipe(gulp.dest('dist/js'));
+  const buildJs = gulp.src([`${src.js}/*.js`]).pipe(gulp.dest('dist/js'));
 
   const buildImg = gulp.src(['src/img/**/*']).pipe(gulp.dest('dist/img'));
 });
 
+// Default task
 gulp.task('default', ['watch']);

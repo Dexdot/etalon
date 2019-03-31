@@ -1,154 +1,172 @@
-// Contained
+$btn-w: 240px
+$btn-h: 56px
+$btn-bg: $black
+
+$btn-disabled-text-color: #B3B3B3
+$btn-disabled-bg-color: #fff
+
+$btn-outlined-text-color: $black
+$btn-outlined-stroke: $black
+
+
+
+/* Contained */
 .btn
   display: block
-  &:not(.btn--inline)
-    width: 240px
-    height: 56px
 
   position: relative
 
   cursor: pointer
   transition: $trs
 
-  color: $w
-  +obj(m)
-  font-size: 12px
-  letter-spacing: 0.08em
+  color: #fff
+  +ft(m)
+  font-size: 14px
+  letter-spacing: 0.04em
   text-transform: uppercase
 
-  &:not(.btn--outlined):not(:disabled):hover .btn__cover
-    background: $b-lt
+.btn:not(.btn--inline)
+  width: $btn-w
+  height: $btn-h
 
-  &__cover
-    z-index: -1
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background: $b
-    transition: $trs
+.btn:not(.btn--outlined):not(:disabled):hover .btn__cover
+  background: $btn-bg
+
+
+// Cover
+.btn__cover
+  z-index: -1
+  position: absolute
+  top: 0
+  left: 0
+
+  width: 100%
+  height: 100%
+
+  background: $black
+  transition: $trs
+  pointer-events: none
+
+
+/* Disabled */
+.btn:disabled:not(.btn--outlined):not(.btn--inline)
+  color: $btn-disabled-text-color
+
+// Background color
+.btn:disabled:not(.btn--outlined):not(.btn--inline) .btn__cover
+  background: $btn-disabled-bg-color
+
+// Children colors
+.btn:disabled:not(.btn--outlined):not(.btn--inline)
+  .btn__plus::before,
+  .btn__plus::after,
+  .btn__divider
+    background: $btn-disabled-text-color
+
+
+/* Disabled input btn */
+.btn:not(.btn--outlined) input
+  &:disabled,
+  &:disabled ~ *
     pointer-events: none
 
-
-// Disabled
-.btn:disabled:not(.btn--outlined):not(.btn--inline)
-  color: #B3B3B3
-
   // Background color
-  .btn__cover
-    background: $w
+  &:disabled ~ .btn__cover
+    background: $btn-disabled-bg-color
+
+  // Text color
+  &:disabled ~ .btn__text
+    color: $btn-disabled-text-color
 
   // Children colors
-  .btn__plus::before,
-  .btn__plus::after
-    background: #B3B3B3
-  .btn__divider
-    background: #DDDDDD
+  &:disabled ~ .btn__plus::before,
+  &:disabled ~ .btn__plus::after,
+  &:disabled ~ .btn__divider
+    background: $btn-disabled-text-color
+
+.btn:not(.btn--outlined):hover input:disabled ~ .btn__cover
+  background: $btn-disabled-bg-color
 
 
-// Disabled input btn
-.btn:not(.btn--outlined)
-  input
-    &:disabled,
-    &:disabled ~ *
-      pointer-events: none
-
-    // Background color
-    &:disabled ~ .btn__cover
-      background: $w
-
-    // Text color
-    &:disabled ~ .btn__text
-      color: #B3B3B3
-
-    // Children colors
-    &:disabled ~ .btn__plus::before,
-    &:disabled ~ .btn__plus::after,
-    &:disabled ~ .btn__divider
-      background: #B3B3B3
-  
-  &:hover input:disabled ~ .btn__cover
-    background: $w
-
-
-// Outlined
+/* Outlined */
 .btn--outlined
   // Text color
-  color: $b
+  color: $btn-outlined-text-color
 
-  // No BG color
-  .btn__cover
-    background: transparent
+// No BG color
+.btn--outlined .btn__cover
+  background: 0
   
-  // Border
-  .btn__cover
-    border: 1px solid $b
+// Border
+.btn--outlined .btn__cover
+  border: 1px solid $btn-outlined-stroke
 
-  // Children colors
+// Children colors
+.btn--outlined
   .btn__divider,
   .btn__plus::before,
   .btn__plus::after
-    background: $b
+    background: $btn-outlined-stroke
 
-  // Disabled button
+// Disabled button
+.btn--outlined:disabled
+  opacity: 0.3
+  pointer-events: none
+
+// Disabled input btn
+.btn--outlined input
   &:disabled
-    opacity: 0.3
     pointer-events: none
+  &:disabled ~ *
+    pointer-events: none
+    opacity: 0.3
 
-  // Disabled input btn
-  input
-    &:disabled
-      pointer-events: none
-    &:disabled ~ *
-      pointer-events: none
-      opacity: 0.3
+// Hover btn
+.btn--outlined:hover:not(:disabled) .btn__cover
+  transform: scale(0.985)
 
-  // Hover btn
-  &:hover:not(:disabled) .btn__cover
-    transform: scale(0.985)
-
-  // Hover disabled input btn
-  &:hover input:disabled ~ .btn__cover
-    transform: scale(1)
+// Hover disabled input btn
+.btn--outlined:hover input:disabled ~ .btn__cover
+  transform: scale(1)
 
 
-// Upload button / input
+/* Upload button / input */
 .btn--upload
   display: flex
   align-items: center
   justify-content: center
 
-  input
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
+.btn--upload input
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 
-    cursor: pointer
-    opacity: 0
+  cursor: pointer
+  opacity: 0
 
-  &:not(:disabled):hover .btn__plus
-    transform: rotate(180deg)
+.btn--upload:not(:disabled):hover .btn__plus
+  transform: rotate(180deg)
 
-  &:hover input:disabled ~ .btn__plus
-    transform: rotate(0)
+.btn--upload:hover input:disabled ~ .btn__plus
+  transform: rotate(0)
 
-
+.btn--upload
   .btn__divider,
   .btn__text,
   .btn__plus
     pointer-events: none
 
-  .btn__divider
-    margin-left: 24px
-    margin-right: 40px
+.btn--upload .btn__divider
+  margin-left: 24px
+  margin-right: 40px
 
 
-// Inline button
+/* Inline button */
 .btn--inline
-  color: $b
+  color: $btn-outlined-stroke
+
 .btn--inline:disabled
   opacity: 0.3
 
@@ -163,26 +181,27 @@
 
   position: relative
 
-  &::before,
-  &::after
-    content: ''
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+.btn__plus::before,
+.btn__plus::after
+  content: ''
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
 
-    border-radius: 12px
-    background: #fff
+  border-radius: 12px
+  background: #fff
 
-    display: block
+  display: block
 
-  &::before
-    width: 12px
-    height: 2px
+.btn__plus::before
+  width: 12px
+  height: 2px
 
-  &::after
-    width: 2px
-    height: 12px
+.btn__plus::after
+  width: 2px
+  height: 12px
+
 
 // Divider
 .btn__divider

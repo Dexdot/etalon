@@ -2,8 +2,8 @@ export default class Range {
   constructor(el, { min, max } = { min: 0, max: 100 }) {
     // DOM
     this.DOM = { el };
-    this.DOM.input = this.DOM.el.querySelector('input');
-    this.DOM.track = this.DOM.el.querySelector('.range__track');
+    this.DOM.input = $.qs('input', this.DOM.el);
+    this.DOM.track = $.qs('.range__track', this.DOM.el);
 
     // min & max values
     this.min = this.DOM.input.min || min;
@@ -17,8 +17,8 @@ export default class Range {
   }
 
   initEvents() {
+    // Draw on input
     this.DOM.input.addEventListener('input', () => {
-      // Draw on input
       this.draw(this.DOM.input.value);
     });
   }

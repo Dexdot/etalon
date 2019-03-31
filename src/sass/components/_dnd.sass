@@ -2,90 +2,94 @@
   width: 100%
   padding: 40px
 
-  background: $w
+  background: #fff
   border-radius: 4px
 
-  // +obj(r)
-  +obj(m)
-  color: $b
-  letter-spacing: 0.02em
+  color: $black
 
   position: relative
 
-  // Input
-  input
-    z-index: 1
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-
-    cursor: pointer
-    opacity: 0
-
-  // Container
-  &__container
-    display: flex
-    align-items: flex-start
+// Input
+.dnd input
+  z-index: 1
+  position: absolute
+  top: 0
+  left: 0
   
-  // Icon container
-  &__icon
-    position: relative
-    width: 48px
-    height: 48px
-    margin-right: 24px
+  width: 100%
+  height: 100%
 
-  // Icons children
-  &__svg,
-  &__plus
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+  cursor: pointer
+  opacity: 0
 
-  // SVG Circle
-  &__circle
-    fill: none
-    stroke: $b
-    stroke-linecap: round
-    stroke-width: 1.6px
-    stroke-dasharray: 80 100
 
-    transform: rotate(35deg)
-    transform-origin: 50% 50%
-    transition: $trs
+// Container
+.dnd__container
+  display: flex
+  align-items: flex-start
 
-  // Plus
-  &__plus
-    width: 14px
-    height: 14px
 
-    transform-origin: 50% 50%
-    transition: $trs
+// Icon container
+.dnd__icon
+  position: relative
+  width: 48px
+  height: 48px
+  margin-right: 24px
 
-    position: relative
 
-    &::before,
-    &::after
-      content: ''
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
+// Icons children
+.dnd__svg,
+.dnd__plus
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
 
-      border-radius: 14px
-      background: $b
 
-      display: block
+// SVG Circle
+.dnd__circle
+  fill: none
+  stroke: $black
+  stroke-linecap: round
+  stroke-width: 1.6px
+  stroke-dasharray: 80 100
 
-    &::before
-      width: 14px
-      height: 2px
+  transform: rotate(35deg)
+  transform-origin: 50% 50%
+  transition: $trs
 
-    &::after
-      width: 2px
-      height: 14px
+
+// Plus
+.dnd__plus
+  width: 14px
+  height: 14px
+
+  transform-origin: 50% 50%
+  transition: $trs
+
+  position: relative
+
+.dnd__plus::before,
+.dnd__plus::after
+  content: ''
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+  border-radius: 14px
+  background: $black
+
+  display: block
+
+.dnd__plus::before
+  width: 14px
+  height: 2px
+
+.dnd__plus::after
+  width: 2px
+  height: 14px
+
 
 // Hover
 .dnd:hover
@@ -94,21 +98,22 @@
   .dnd__plus
     transform: rotate(180deg) translate(50%, 50%)
 
+
+
 // Caption
 .dnd__caption
   max-width: 65%
-  b
-    display: block
-    margin-bottom: 8px
 
-    +obj(b)
-    font-size: 16px
-  p
-    font-size: 14px
-    opacity: 0.4
+.dnd__caption b
+  display: block
+  margin-bottom: 8px
+
+.dnd__caption p
+  opacity: 0.4
+
 
 // Tip
 .dnd__tip
   margin-left: auto
-  font-size: 12px
   opacity: 0.4
+

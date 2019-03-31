@@ -1,11 +1,10 @@
 {
-  "name": "gulpstart",
+  "name": "etalon",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debil": "yarn build && yarn deploy",
-    "deploy": "now dist && cd dist && now alias etalon",
+    "deploy": "yarn build && cd dist && now && now alias etalon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "build": "gulp build"
@@ -26,6 +25,7 @@
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-prettier": "^2.6.1",
     "gulp": "^3.9.1",
@@ -46,26 +46,9 @@
     "webpack": "4.6.0",
     "webpack-stream": "4.0.3"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "browser": true
-    },
-    "extends": [
-      "airbnb-base",
-      "prettier"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "allowImportExportEverywhere": true
-    },
-    "rules": {
-      "linebreak-style": [
-        "error",
-        "windows"
-      ],
-      "import/no-cycle": false
-    }
-  },
-  "dependencies": {}
+  "dependencies": {
+    "autosize": "^4.0.2",
+    "dom-locky": "^1.0.0",
+    "slim-select": "^1.18.12"
+  }
 }

@@ -7,7 +7,7 @@ const animateItem = item => item.target.classList.add('visible');
 
 // Create observer
 const observer = new IntersectionObserver(items => {
-  $(items).each((i, item) => {
+  items.forEach(item => {
     if (item.isIntersecting) {
       animateItem(item);
     }
@@ -17,6 +17,6 @@ const observer = new IntersectionObserver(items => {
 // Start observe
 const elements = document.querySelectorAll('.js-observe');
 
-$(elements).each((i, el) => {
+elements.forEach(el => {
   observer.observe(el);
 });

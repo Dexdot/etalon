@@ -1,0 +1,161 @@
+.ss-main
+  position: relative
+
+  display: inline-block
+  width: 100%
+
+  user-select: none
+  
+
+
+// Single selected
+.ss-main .ss-single-selected
+  width: 100%
+  display: flex
+  padding-bottom: 16px
+
+  border-bottom: 1px solid rgba($black, 0.3)
+  cursor: pointer
+  outline: 0
+  transition: background-color $trs
+
+.ss-main .ss-single-selected.ss-disabled
+  background-color: #dcdee2
+  cursor: not-allowed
+
+.ss-main .ss-single-selected.ss-open-above
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+
+
+// Placeholder
+.ss-main .ss-single-selected .placeholder
+  overflow: hidden
+  display: flex
+  align-items: center
+  flex: 1 1 100%
+  width: calc(100% - 30px)
+
+  text-align: left
+  line-height: 1em
+  text-overflow: ellipsis
+  user-select: none
+
+.ss-main .ss-single-selected .placeholder *
+  display: flex
+  align-items: center
+  overflow: hidden
+  width: auto
+  text-overflow: ellipsis
+
+.ss-main .ss-single-selected .placeholder .ss-disabled
+  cursor: pointer
+
+
+// Deselect
+.ss-main .ss-single-selected .ss-deselect.ss-hide
+  display: none
+
+.ss-main .ss-single-selected .ss-deselect
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  flex: 0 1 auto
+  margin: 0 5px
+
+
+// Arrow
+.ss-main .ss-single-selected .ss-arrow
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  flex: 0 1 auto
+
+.ss-main .ss-single-selected .ss-arrow span
+  border: solid #666
+  border-width: 0 2px 2px 0
+  transition: $trs
+  
+  display: inline-block
+  padding: 2.5px
+
+.ss-main .ss-single-selected .ss-arrow span.arrow-up
+  transform: rotate(-135deg)
+  margin: 2.5px 0 0
+
+.ss-main .ss-single-selected .ss-arrow span.arrow-down
+  transform: rotate(45deg)
+  margin: -2.5px 0 0
+
+
+
+
+
+// Content
+.ss-main .ss-content .ss-search
+  display: none
+
+.ss-main .ss-content
+  width: 100%
+  margin: -1px 0 0
+
+  z-index: 1010
+  position: absolute
+
+  background-color: #fff
+  transform-origin: center top
+  transition: $trs
+  opacity: 0
+  transform: translateY(2px)
+  pointer-events: none
+
+.ss-main .ss-content.ss-open
+  display: block
+  opacity: 1
+  transform: translateY(2px)
+  pointer-events: auto
+
+
+// List
+.ss-main .ss-content .ss-list
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1)
+
+  overflow-x: hidden
+  overflow-y: auto
+
+  text-align: left
+
+
+// Optgroup
+.ss-main .ss-content .ss-list .ss-optgroup .ss-optgroup-label
+  padding: 6px 10px
+  font-weight: 700
+
+.ss-main .ss-content .ss-list .ss-optgroup .ss-option
+  padding: 6px 6px 6px 25px
+
+
+// Option
+.ss-main .ss-content .ss-list .ss-option
+  height: 40px
+  display: flex
+  align-items: center
+  padding: 0 24px
+
+  cursor: pointer
+  user-select: none
+
+.ss-main .ss-content .ss-list .ss-option
+  &.ss-highlighted, &:not(.ss-disabled):hover
+    background-color: #F4F4F4
+
+.ss-main .ss-content .ss-list .ss-option *
+  display: inline-block
+
+.ss-main .ss-content .ss-list .ss-option.ss-disabled
+  cursor: default
+  opacity: 0.4
+
+.ss-main .ss-content .ss-list .ss-option.ss-hide
+  display: none
+

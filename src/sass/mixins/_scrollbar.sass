@@ -1,10 +1,11 @@
 // Прокрутка с кастомным скроллбаром
-=scrollbar
+=scrollbar($size: 4px, $bg: $black)
   -webkit-overflow-scrolling: touch
   overflow-x: hidden
   overflow-y: auto
+
   &::-webkit-scrollbar
-    width: 4px
-    height: 4px
-    &-thumb
-      background-color: $b
+    width: $size
+    height: $size
+  &::-webkit-scrollbar-thumb
+    background-color: $bg
