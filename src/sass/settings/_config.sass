@@ -19,3 +19,6 @@ $trs-4: 0.4s cubic-bezier(0.33, 0, 0, 1)
 
 // Blocks
 $unit: 4.45vw !default
+
+@function modal-w()
+  @return calc(#{$unit} + #{column-spans(3)})

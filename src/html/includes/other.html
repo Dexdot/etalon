@@ -1,0 +1,77 @@
+<section class="section">
+  <div class="container">
+    <div class="u-flex align-start">
+      <div class="heading"><h2 class="t-h1">Other</h2></div>
+      <div>
+        <div class="group">
+          <h2 class="u-mb-4">Counter</h2>
+
+          <div class="counter js-counter u-flex u-aic">
+            <input type="hidden" class="js-counter-input" />
+            <button class="u-center js-counter-minus">-</button>
+            <span class="js-counter-num">1</span>
+            <button class="u-center js-counter-plus">+</button>
+          </div>
+        </div>
+        <div class="group">
+          <h2 class="u-mb-4">Tabs</h2>
+
+          <button class="btn js-tab active" data-tab="tab-1">
+            <span class="btn__cover"></span>Tab 1
+          </button>
+          <button class="btn js-tab" data-tab="tab-2">
+            <span class="btn__cover"></span>Tab 2
+          </button>
+
+          <div class="tab-content js-tab-content active" data-tab="tab-1">
+            Tab content 1
+          </div>
+          <div class="tab-content js-tab-content" data-tab="tab-2">
+            Tab content 2
+          </div>
+        </div>
+        <div class="group">
+          <h2 class="u-mb-4">Accordion</h2>
+
+          <ul class="accordion-container js-accordion">
+            <li class="accordion">
+              <button class="accordion__btn" type="button">
+                Accordion 1
+                <svg class="i-chevron"><use xlink:href="#i-chevron"></use></svg>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__content-inner">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Ipsum illum ipsa facere, pariatur quam delectus vero quas nisi
+                  expedita debitis?
+                </div>
+              </div>
+            </li>
+            <li class="accordion">
+              <button class="accordion__btn" type="button">
+                Accordion 2
+                <svg class="i-chevron"><use xlink:href="#i-chevron"></use></svg>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__content-inner">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Ipsum illum ipsa facere, pariatur quam delectus vero quas nisi
+                  expedita debitis?
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <h2 class="u-mb-4">Modal</h2>
+
+          <button class="btn js-some-open">
+            <span class="btn__cover"></span> Open modal
+          </button>
+
+          @include('../blocks/some-modal.html')
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
